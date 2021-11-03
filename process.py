@@ -26,9 +26,13 @@ def readtxt():
   return(H)
 
 def compare_img(Hu_moments, Hu_base):
-
+  aux1=[]
   for i in range(len(Hu_base)):
-    print('\n')
+    aux=0
+    for j in range(len(Hu_base[i])):
+      #aux=aux + abs(Hu_moments[j] - Hu_base[i][j])/abs(Hu_base[i][j])
+      aux=aux + (Hu_moments[j][0] - Hu_base[i][j])**2
+    aux1.append(sqrt(aux))
 
   return()
 
@@ -88,11 +92,11 @@ while(cap.isOpened()):
         huMoments[j] = -1* copysign(1.0, huMoments[j]) * log10(abs(huMoments[j]))
 
       # now I should compare
-
+      compare_img(huMoments, Hu_base)
       #write2txt(huMoments)
 
-      cv2.imshow('Frame',crop[i])
-      cv2.waitKey(0)
+      #cv2.imshow('Frame',crop[i])
+      #cv2.waitKey(0)
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
       break
