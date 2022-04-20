@@ -13,4 +13,4 @@ Installation from source:
 
 ## Testing:
 
-    python3 format_data.py --filename 10_09_05.ulg --output dada
+    python3 format_data.py --filename 10_09_05.ulg --output data
